@@ -48,14 +48,11 @@ class PlaylistsActivity : BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>
         connectionManager.observe(this) {
             if (!it) {
                 binding.noInternet.isVisible = true
-                binding.recyclerView.isVisible = false
                 binding.include.btnTryAgain.setOnClickListener {
                     if (!isNetworkConnected()) {
                         showToast(getString(R.string.no_internet))
                     } else {
                         binding.noInternet.isVisible = false
-                        binding.recyclerView.isVisible = true
-
                     }
                 }
             } else {

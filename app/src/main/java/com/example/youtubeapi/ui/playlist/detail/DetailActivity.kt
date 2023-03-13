@@ -36,12 +36,13 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
         val connectionManager = ConnectionManager(application)
         connectionManager.observe(this) { isConnected ->
             binding.noInternet.root.isVisible = !isConnected
-
             binding.noInternet.btnTryAgain.setOnClickListener {
                 if (!isNetworkConnected()) {
                     showToast(getString(R.string.no_internet))
+                    binding.itemsLayout.isVisible = false
                 } else {
                     binding.noInternet.root.isVisible = false
+                    binding.itemsLayout.isVisible = true
                 }
             }
         }
