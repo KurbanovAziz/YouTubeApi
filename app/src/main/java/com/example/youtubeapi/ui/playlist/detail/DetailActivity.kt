@@ -33,9 +33,10 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
 
     override fun isConnection() {
         super.isConnection()
-        val cld = ConnectionManager(application)
-        cld.observe(this) { isConnected ->
+        val connectionManager = ConnectionManager(application)
+        connectionManager.observe(this) { isConnected ->
             binding.noInternet.root.isVisible = !isConnected
+
             binding.noInternet.btnTryAgain.setOnClickListener {
                 if (!isNetworkConnected()) {
                     showToast(getString(R.string.no_internet))
@@ -46,13 +47,9 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun initViewModel() {
+        super.initViewModel()
         adapter = DetailAdapter()
-        setItems()
-    }
-
-    private fun setItems() {
         val id = intent.getStringExtra(KEY)
         id?.let { _ ->
             viewModel.getItemLists(id).observe(this) {
@@ -60,5 +57,6 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
                 adapter.setItems(it.items)
             }
         }
+
     }
 }

@@ -21,7 +21,7 @@ class PlaylistsActivity : BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>
     override val viewModel: PlaylistsViewModel by lazy {
         ViewModelProvider(this)[PlaylistsViewModel::class.java]
     }
-    
+
     override fun inflateViewBinding(): PlaylistsMainBinding {
         return PlaylistsMainBinding.inflate(layoutInflater)
     }
@@ -44,15 +44,18 @@ class PlaylistsActivity : BaseActivity<PlaylistsMainBinding, PlaylistsViewModel>
 
     override fun isConnection() {
         super.isConnection()
-        val cld = ConnectionManager(application)
-        cld.observe(this) {
+        val connectionManager = ConnectionManager(application)
+        connectionManager.observe(this) {
             if (!it) {
                 binding.noInternet.isVisible = true
+                binding.recyclerView.isVisible = false
                 binding.include.btnTryAgain.setOnClickListener {
                     if (!isNetworkConnected()) {
                         showToast(getString(R.string.no_internet))
                     } else {
                         binding.noInternet.isVisible = false
+                        binding.recyclerView.isVisible = true
+
                     }
                 }
             } else {
