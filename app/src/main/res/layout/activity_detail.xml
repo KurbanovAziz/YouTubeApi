@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.playlist.detail.DetailActivity">
+
+    <include
+        android:id="@+id/no_internet"
+        layout="@layout/check_internet"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/page_padding"
+        android:paddingVertical="@dimen/padding_vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fjalla_oner"
+            android:maxLines="2"
+            android:text="@string/emotional"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/tv_playlist_text_size" />
+
+        <TextView
+            android:id="@+id/tv_playlist_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/noto_sans"
+            android:maxLines="5"
+            android:text="@string/in_this_series"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/tv_desc_text_size"
+            tools:ignore="VisualLintLongText" />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="-28dp"
+        android:layout_marginEnd="@dimen/page_padding"
+        android:backgroundTint="@color/red"
+        android:contentDescription="@string/play_button"
+        android:drawableEnd="@drawable/start"
+        android:padding="8dp" />
+
+    <TextView
+        android:id="@+id/tv_video_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/page_padding"
+        android:layout_marginTop="@dimen/tv_count_margin_top"
+        android:fontFamily="@font/noto_sans"
+        android:text="@string/_32_video_series"
+        android:textColor="@color/text_black" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_items"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/page_padding"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:listitem="@layout/item_playlists" />
+
+</LinearLayout>
