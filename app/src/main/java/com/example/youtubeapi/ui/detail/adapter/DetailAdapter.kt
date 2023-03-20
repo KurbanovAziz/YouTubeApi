@@ -1,14 +1,14 @@
-package com.example.youtubeapi.ui.playlist.detail.adapter
+package com.example.youtubeapi.ui.detail.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.youtubeapi.databinding.ItemPlaylistsBinding
-import com.example.youtubeapi.model.Item
-import com.example.youtubeapi.utils.loadImage
+import com.example.youtubeapi.data.remote.model.Item
+import com.example.youtubeapi.core.ext.loadImage
 
-class DetailAdapter :
+class DetailAdapter(val onClick: (Item) -> Unit) :
     RecyclerView.Adapter<DetailAdapter.DetailViewHolder>() {
 
     private val items = arrayListOf<Item>()
@@ -21,6 +21,10 @@ class DetailAdapter :
             binding.tvTitle.text = item.snippet.title
             binding.blackBar.isVisible = false
             binding.tvVideo.text = item.snippet.publishedAt
+
+            itemView.setOnClickListener {
+                onClick(item)
+            }
         }
     }
 

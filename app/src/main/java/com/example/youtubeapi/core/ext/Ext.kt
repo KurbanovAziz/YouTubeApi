@@ -1,4 +1,4 @@
-package com.example.youtubeapi.utils
+package com.example.youtubeapi.core.ext
 
 import android.content.Context
 import android.net.ConnectivityManager

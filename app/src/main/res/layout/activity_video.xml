@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.video.VideoActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/player_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ImageView
+            android:id="@+id/iv_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_video"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_play"
+            app:layout_constraintBottom_toBottomOf="@id/iv_video"
+            app:layout_constraintEnd_toEndOf="@id/iv_video"
+            app:layout_constraintStart_toStartOf="@id/iv_video"
+            app:layout_constraintTop_toTopOf="@id/iv_video" />
+
+        <ImageView
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="60dp"
+            android:src="@drawable/ic_skip_next"
+            app:layout_constraintBottom_toBottomOf="@id/iv_video"
+            app:layout_constraintEnd_toEndOf="@id/iv_video"
+            app:layout_constraintTop_toTopOf="@id/iv_video" />
+
+        <ImageView
+            android:id="@+id/btn_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:src="@drawable/ic_skip_previous"
+            app:layout_constraintBottom_toBottomOf="@id/iv_video"
+            app:layout_constraintStart_toStartOf="@id/iv_video"
+            app:layout_constraintTop_toTopOf="@id/iv_video" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        app:layout_constraintTop_toBottomOf="@id/player_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/page_padding"
+            android:paddingVertical="@dimen/padding_vertical"
+            app:layout_constraintTop_toBottomOf="@id/player_layout">
+
+            <TextView
+                android:id="@+id/tv_title_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fjalla_oner"
+                android:maxLines="2"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/tv_playlist_text_size"
+                tools:text="@string/emotional" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/download_btn"
+                android:drawableEnd="@drawable/ic_download"
+                android:drawablePadding="16dp"
+                android:paddingHorizontal="18dp"
+                android:text="@string/download"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/red"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_description_video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8dp"
+                android:fontFamily="@font/noto_sans"
+                android:maxLines="5"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/tv_desc_text_size"
+                tools:ignore="VisualLintLongText"
+                tools:text="@string/in_this_series" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/check_internet"
+        layout="@layout/check_internet"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/video_quality_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+        <include
+            android:id="@+id/video_quality"
+            layout="@layout/video_quality"/>
+    </FrameLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

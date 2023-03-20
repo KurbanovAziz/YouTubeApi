@@ -1,4 +1,4 @@
-package com.example.youtubeapi.base
+package com.example.youtubeapi.core.base
 
 import android.content.Context
 import android.os.Bundle

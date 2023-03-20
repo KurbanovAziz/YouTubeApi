@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.youtubeapi.databinding.ItemPlaylistsBinding
-import com.example.youtubeapi.model.Item
-import com.example.youtubeapi.model.Playlists
-import com.example.youtubeapi.utils.loadImage
+import com.example.youtubeapi.data.remote.model.Item
+import com.example.youtubeapi.core.ext.loadImage
 
 class PlaylistsAdapter(val onClick: (Item) -> Unit) : RecyclerView.Adapter<PlaylistsAdapter.PlaylistsViewHolder>(){
 
