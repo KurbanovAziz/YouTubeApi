@@ -39,8 +39,11 @@ class VideoActivity : BaseActivity<ActivityVideoBinding, VideoViewModel>() {
         binding.videoQuality.btnDownload.setOnClickListener {
             binding.videoQualityLayout.isVisible = false
         }
-
+        binding.toolbar.tvBack.setOnClickListener {
+            finish()
+        }
     }
+
 
     override fun initViewModel() {
         super.initViewModel()

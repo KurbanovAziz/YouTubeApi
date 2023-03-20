@@ -60,7 +60,7 @@ open class Repository {
 
     fun getVideo(id: String): LiveData<Playlists> {
         val data = MutableLiveData<Playlists>()
-        apiService.getItemlists(BuildConfig.API_KEY, App.PART_PLAYLISTS, id)
+        apiService.getVideo(BuildConfig.API_KEY, App.PART_PLAYLISTS, id)
             .enqueue(object : Callback<Playlists> {
                 override fun onResponse(
                     call: Call<Playlists>, response: Response<Playlists>

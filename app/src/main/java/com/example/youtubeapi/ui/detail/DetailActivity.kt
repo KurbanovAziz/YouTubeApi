@@ -35,6 +35,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>() {
             intent.putExtra(KEY, it.id)
             intent.putExtra(KEY_TITLE_DETAIL, it.snippet.title)
             intent.putExtra(KEY_DESC_DETAIL, it.snippet.description)
+
             startActivity(intent)
         }
         binding.toolbar.tvBack.setOnClickListener {

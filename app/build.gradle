@@ -55,9 +55,12 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.14.2'
 
     // Lifecycle
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0'
 
     // Interceptor
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
+
+    //ExoPlayer
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.4'
 }

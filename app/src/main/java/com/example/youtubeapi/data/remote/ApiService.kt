@@ -27,5 +27,6 @@ interface ApiService {
     fun getVideo(
         @Query("key") key: String,
         @Query("part") part: String,
+        @Query("id") id: String,
     ): Call<Playlists>
 }
